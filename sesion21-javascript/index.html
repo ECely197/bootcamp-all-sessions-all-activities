@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probando formularios</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="nombre-completo">Nombre</label>
+        <input
+          type="text"
+          placeholder="Nombre"
+          name="name-complete"
+          id="nombre-completo"
+        />
+      </div>
+
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" placeholder="correo@electronico.com"/>
+      </div>
+      <div>
+        <label for="pass">Contraseña</label>
+        <input type="password" name="pass" id="pass" placeholder="Contraseña">
+      </div>
+      <div>
+        <small for="">Elige una de estas opciones</small>
+        <div class="no-margin">
+            <label for="" class="label-radio">Azul</label>
+            <input type="radio" name="color" value="azul">
+        </div>
+        <div class="no-margin">
+            <label for="" class="label-radio">Rojo</label>
+            <input type="radio" name="color" value="rojo">
+        </div>
+        <div class="no-margin">
+            <label for="" class="label-radio">verde</label>
+            <input type="radio" name="color" value="verde">
+        </div>
+
+        <div>
+            <label for="">Elige el pais</label>
+            <select name="" id="">
+                <option value="" hidden>Selecciona el pas</option>
+                <option value="CO">Colombia</option>
+                <option value="AR">Argentina</option>
+                <option value="BR">Brasil</option>
+            </select>
+        </div>
+
+        <div>
+            <label for=""></label>
+            <textarea name="" id=""></textarea>
+        </div>
+
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+.item-destacado{
+    background-color: aqua;
+}
+
+.item-super-destacado{
+    font-size: 22px;
+    background-color: blueviolet;
+    border: 1px solid green;
+}
+
+.italicas{
+    font-style: italic;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+}
+
+nav.hide{
+    display: none;
+}
+
+ p:hover{
+    background-color: blueviolet;
+} 
+

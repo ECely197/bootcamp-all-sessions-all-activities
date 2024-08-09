@@ -1,0 +1,25 @@
+#contenedora {
+    display: flex;
+}
+
+#caja1{
+    background-color: aquamarine;
+    padding: 15px;
+}
+
+#caja2{
+    background-color: rgb(47, 255, 0);
+    padding: 15px;
+    border:2px solid #0000ff;
+}
+
+#caja3{
+    background-color: chartreuse;
+    padding: 15px;
+    margin: 15px;
+}
+
+#caja4{
+    background-color: tomato;
+    padding: 15px;
+}

@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+body {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+.caja-generica {
+  width: 130px;
+  height: 130px;
+  padding: 15px;
+  font-weight: 800; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sticky{
+  position: sticky;
+  top: 0px;
+  display: inline-block;
+  width: 60px;
+  z-index: 200;
+}
+
+button{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+#contenedora {
+  display: flex;
+  height: 600px;
+  background-color: antiquewhite;
+  flex-direction: row; /*Eligiendo el eje horizontal, como principal*/
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+#caja1 span{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: blue;
+  color: aliceblue;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+#caja1 {
+  background-color: red;
+  position: ;
+ 
+}
+
+#caja2 {
+  background-color: rgb(30, 0, 255);
+  
+  color: aliceblue;
+}
+#caja3 {
+  background-color: aquamarine;
+  z-index: 1;
+}
+#caja4 {
+  background-color: rgba(18, 122, 0, 0.355);
+}

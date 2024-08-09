@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: pink;
+    padding: 0;
+    margin: 0;
+    
+}
+form{
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 20px;
+    max-width: 300px;
+    display: inline-block;
+}
+form div:not(div[class="no-margin"]){
+    margin-bottom: 15px;
+}
+label {
+    width: 100%;
+    display: inline-block;
+}
+small{
+    display: block;
+    width: 100%;
+}
+input:not(input[type="radio"]){
+    display: inline-block;
+    width: 100%;
+    border-bottom: 0.5px solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: rgb(255, 118, 118);
+}
+
+button[type="submit"]{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.label-radio{
+    display: inline;
+}
+textarea{
+    max-width: 100%;
+}

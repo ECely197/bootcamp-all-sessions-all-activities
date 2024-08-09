@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+main section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+img{
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.img-peliculas{
+    border-radius: 5px;
+}
