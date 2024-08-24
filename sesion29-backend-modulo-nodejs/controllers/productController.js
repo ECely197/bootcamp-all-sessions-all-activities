@@ -1,3 +1,5 @@
+import { validationResult } from "express-validator";
+
 let products = [
   {
     id: 1,
@@ -30,7 +32,8 @@ function getAll(req, res) {
 }
 
 function createProduct(req, res) {
-  if (req.body.id && req.body.titulo && req.body.descripcion) {
+  const result = validationResult(req);
+  if (result.isEmpty()) {
     const newProduct = {
       id: Number(req.body.id),
       titulo: req.body.titulo,
@@ -39,7 +42,9 @@ function createProduct(req, res) {
     products.push(newProduct);
     return res.status(201).json({ message: `Se ha creado el producto` });
   }
-}
+  return res.json({errors: "todos los datos son obligatorios, titulo, descripcion"});
+  }
+
 
 function updateProduct(req, res) {
   const productId = Number(req.params.id);
@@ -58,7 +63,8 @@ function updateProduct(req, res) {
     .json({ message: "No se ha encontrado un producto con ese ID" });
 }
 
-function getProduct(req, res) {
+function findProduct(req, res) {
+  console.log(req.nuevaPropiedad);
   const productId = Number(req.params.id);
   for (const product of products) {
     if (product.id === productId) {
@@ -84,6 +90,6 @@ export default {
   getAll: getAll,
   createProduct: createProduct,
   updateProduct: updateProduct,
-  getProduct: getProduct,
+  findProduct: findProduct,
   destroyProduct: destroyProduct,
 };

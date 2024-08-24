@@ -1,22 +1,13 @@
-import productoController from "./controllers/productController.js";
+import pruebaMiddleware from "./middlewares/pruebaMiddleware.js";
+import productRoutes from "./routes/productRoutes.js";
+
 import express from "express";
 const app = express();
 
 app.use(express.json());
+app.use(pruebaMiddleware);
 
-app.get("/", function (req, res) {
-  return res.json("Bienvenido a nuestra API");
-});
-
-app.get("/api/products", productoController.getAll);
-
-app.post("/api/products", productoController.createProduct);
-
-app.patch("/api/products/:id", productoController.updateProduct);
-
-app.get("/api/products/:id", productoController.getProduct);
-
-app.delete("/api/products/:id", productoController.destroyProduct);
+app.use(productRoutes);
 
 app.get("*", (req, res) => res.status(404).json(`Not Found`));
 
