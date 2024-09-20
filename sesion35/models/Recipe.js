@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-
+import mongoose, { mongo } from "mongoose";
+import User from "./user.js";
 const recipeSchema = mongoose.Schema(
   {
     title: {
@@ -16,6 +16,10 @@ const recipeSchema = mongoose.Schema(
     deleteAt:{
         type: Date,
         default: null,
+    },
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
     },
   },
   {

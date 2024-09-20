@@ -1,7 +1,9 @@
+import "dotenv/config"
 import express from "express";
 import connectDB from "./config/db.js";
 import recipeRoutes from "./routes/recipeRoutes.js";
-import recipeController from "./controllers/recipeController.js";
+import UserRoutes from "./routes/userRoutes.js";
+import authRoutes from "./routes/authRoutes.js"
 
 const app = express();
 const PORT = 3000;
@@ -14,6 +16,9 @@ connectDB();
 
 app.use(recipeRoutes);
 
+app.use(UserRoutes);
+
+app.use(authRoutes);
 ////// FIN RUTAS
 
 app.listen(PORT, () => {

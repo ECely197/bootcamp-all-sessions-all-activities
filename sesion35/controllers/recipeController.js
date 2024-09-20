@@ -1,8 +1,8 @@
 import Recipe from "../models/Recipe.js";
-
+import User from "../models/user.js";
 async function getAll(req, res) {
   try {
-    const recipes = await Recipe.find({deleteAt: null});
+    const recipes = await Recipe.find({deleteAt: null }).populate("user");
     return res.json(recipes);
   } catch (error) {
     return res.status(404).json("Error en el servidor");
@@ -31,6 +31,7 @@ async function createRecipe(req, res) {
         total: req.body.preparation.total,
       },
       instructions: req.body.instructions,
+      user: req.body.user,
     });
     return res.json(newRecipe);
   } catch (error) {
