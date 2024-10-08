@@ -25,13 +25,20 @@ async function createRecipe(req, res) {
     const newRecipe = await Recipe.create({
       title: req.body.title,
       description: req.body.description,
-      preparation: {
-        ingredients: req.body.preparation.ingredients,
-        cooking: req.body.preparation.cooking,
-        total: req.body.preparation.total,
+      img: req.body.img,  // Campo de imagen
+      times: {
+        preparation: req.body.preparation,
+        cooking: req.body.cooking,
+        total: req.body.total,
       },
       instructions: req.body.instructions,
-      user: req.body.user,
+      preparation: req.body.preparationDetails,  // Usado para los detalles de preparación
+      nutritionalValues: {
+        calories: req.body.calories,
+        carbohydrates: req.body.carbohydrates,
+        protein: req.body.protein,
+        fat: req.body.fat,
+      },
     });
     return res.json(newRecipe);
   } catch (error) {
@@ -44,12 +51,20 @@ async function updateRecipe(req, res) {
   const recipeToUpdate = await Recipe.findById(req.params.id);
 
   if (recipeToUpdate !== null) {
-    const { title, description, preparation, instructions } = req.body;
+    const { title, description, preparation, cooking, total, instructions, preparationDetails, img, calories, carbohydrates, protein, fat } = req.body;
 
     recipeToUpdate.title = title || recipeToUpdate.title;
     recipeToUpdate.description = description || recipeToUpdate.description;
-    recipeToUpdate.preparation = preparation || recipeToUpdate.preparation;
+    recipeToUpdate.img = img || recipeToUpdate.img;  // Actualizar el campo de imagen
+    recipeToUpdate.times.preparation = preparation || recipeToUpdate.times.preparation;
+    recipeToUpdate.times.cooking = cooking || recipeToUpdate.times.cooking;
+    recipeToUpdate.times.total = total || recipeToUpdate.times.total;
     recipeToUpdate.instructions = instructions || recipeToUpdate.instructions;
+    recipeToUpdate.preparation = preparationDetails || recipeToUpdate.preparation;
+    recipeToUpdate.nutritionalValues.calories = calories || recipeToUpdate.nutritionalValues.calories;
+    recipeToUpdate.nutritionalValues.carbohydrates = carbohydrates || recipeToUpdate.nutritionalValues.carbohydrates;
+    recipeToUpdate.nutritionalValues.protein = protein || recipeToUpdate.nutritionalValues.protein;
+    recipeToUpdate.nutritionalValues.fat = fat || recipeToUpdate.nutritionalValues.fat;
 
     await recipeToUpdate.save();
 
@@ -58,6 +73,8 @@ async function updateRecipe(req, res) {
     return res.json("No existe ninguna receta con el ID");
   }
 }
+
+
 
 async function destroyRecipe(req, res) {
 const recipeTodelete = await Recipe.findById(req.params.id);
